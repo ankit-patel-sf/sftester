@@ -13,38 +13,72 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-<!-- BEGIN Salesforce DMP ControlTag for "Krux Demo Client" -->
-<script class="kxct" data-id="KP9suJF-" data-timing="async" data-version="3.0" type="text/javascript">
-  // window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
-  // (function(){
-  //   var k=document.createElement('script');k.type='text/javascript';k.async=true;
-  //   k.src='https://cdn.krxd.net/controltag/KP9suJF-.js';
-  //   var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
-  // }());
-</script>
-<!-- END Salesforce DMP ControlTag -->
 
 
 <!-- <script type="text/javascript" src="https://cdn.krxd.net/controltag/ssvtwjs8l.js#campaignid=campaignid&advertiserid=advid&placementid=placementid&adid=adid&creativeid=creativeid&siteid=siteid&kxbrand=Builder%20Boost%20Closeout"></script> -->
 
 <script>
+
+var gdprObj;
+
 		$( function() {
 
 			$('input[type="text"]').addClass("ui-widget ui-widget-content ui-corner-all");
 
-
-
-				$( "#clickmebutton" ).click(function() {
-  				alert( "Handler for .click() called." );
-  				  window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
-  				Krux('ns:kruxdemoclient','admEvent', 'LIlDiUlm', {});
-  				alert("test");
+			$( "#button1" ).click(function() {
+  				
+				//alert( "Event 1 Triggered" );
+  				
+				Krux('ns:brownforman', 'consent:get', function(errors, body) {
+					  if (errors) {
+					    console.error(errors);
+					  } else {
+						gdprObj = body.settings;
+					    if (body.settings.tg) {
+					      console.log('This data subject allows targeting.');
+					    }
+					  }
+					});
+  				
 			});
 
+			$( "#button2" ).click(function() {
+  				
+				//alert( "Event 2 Triggered" );
+				
+				window.Krux||((Krux=function(){Krux.q.push(arguments)}).q=[]);
+				(function(){
+				var k=document.createElement('script');k.type='text/javascript';k.async=true;
+				k.src=(location.protocol==='https:'?'https:':'http:')+'//cdn.krxd.net/controltag/szkul817a.js';
+				var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(k,s);
+			  	}());
+  				
+			});
+			
+			$( "#button3" ).click(function() {
+  				
+				//alert( "Event 3 Triggered" );
+  				
+				Krux('ns:brownforman', 'consent:set', {
+					  dc: true,
+					  al: true,
+					  tg: true,
+					  cd: true,
+					  sh: true,
+					  re: true
+					}, function(errors, body) {
+					  if (errors) {
+					    console.error(errors);
+					  } else {
+					    console.log('Successfully set consent flags.');
+					  }
+				});
+  				
+			});
 } );
 
 
-
+		
 
 
 
@@ -53,33 +87,21 @@
 
 </head>
 <body>
+<br/>
+<table>
+	<tr>
+		<td>
+			<input type="submit" id="button1" value="Trigger Get Consent">
+		</td>
+		<td>
+			<input type="submit" id="button2" value="Trigger Control Tag">
+		</td>
+		<td>
+			<input type="submit" id="button3" value="Trigger Set Conset">
+		</td>
+	</tr>
+</table>
 
-<input type="submit" id="clickmebutton" value="Click Me">
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement2&adid=9992&creativeid=8882&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement3&adid=9991&creativeid=8883&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement4&adid=9992&creativeid=8884&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement2&adid=9992&creativeid=8882&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement3&adid=9991&creativeid=8883&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=testCampaignByPlacement&advertiserid=1234&placementid=placement4&adid=9992&creativeid=8884&siteid=7777&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=test_campaign_by_placement&advertiserid=my_advertiser&placementid=placement5&adid=9991&creativeid=8888&siteid=my_site&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvcd1va&campaignid=test_campaign_by_placement&advertiserid=my_advertiser&placementid=placement5&adid=9991&creativeid=8888&siteid=my_site&kxbrand=brand" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1111&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1112&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1113&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1114&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1111&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1112&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1113&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvdr3xq&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=8881&siteid=1114&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=300250&siteid=1111&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=300250&siteid=1111&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=72890&siteid=1111&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement1&adid=9991&creativeid=72890&siteid=1111&kxbrand=brand1" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement2&adid=9991&creativeid=3006001&siteid=1111&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement2&adid=9991&creativeid=300600&siteid=1111&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement3&adid=9991&creativeid=300250&siteid=1111&kxbrand=brand2" />
-<img src="https://beacon.krxd.net/ad_impression.gif?confid=suuvhp05z&campaignid=testCampaignBySite&advertiserid=1234&placementid=placement4&adid=9991&creativeid=72890&siteid=1111&kxbrand=brand2" />
+<br/>
 </body>
 </html>
